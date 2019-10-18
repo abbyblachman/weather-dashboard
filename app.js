@@ -30,6 +30,8 @@ $("#submit").on("click", function(){
         var btn = $("<button>");
         btn.text(cities[i]);
         btn.attr("data-name",cities[i]);
+        btn.attr("class", "badge badge-light");
+        btn.attr("style", "font-size: 1rem; margin: 0.3rem;");
         $("#cities").append(btn);
       }
       console.log("Cities: "+cities);
@@ -94,6 +96,8 @@ $("#submit").on("click", function(){
         var btn = $("<button>");
         btn.text(cities[i]);
         btn.attr("data-name",cities[i]);
+        btn.attr("class", "badge badge-light");
+        btn.attr("style", "font-size: 1rem; margin: 0.3rem;");
         $("#cities").append(btn);
       }
       var queryURL = 'https://openweathermap.org/data/2.5/weather?q=Chicago&appid=b6907d289e10d714a6e88b30761fae22';
