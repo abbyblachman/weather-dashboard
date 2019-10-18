@@ -1,0 +1,29 @@
+.card-styled {
+    padding: 1rem;
+}
+
+.city-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-styled {
+    padding: 1rem;
+}
+
+.five-day {
+    font-size: 1.5rem;
+}
+
+.search-styled {
+    font-size: 1.5rem;
+}
+
+.title-styled {
+    background-color: black;
+    color: white;
+    font-size: 3rem;
+    margin: auto;
+    padding: 2rem;
+    text-align: center;
+}
