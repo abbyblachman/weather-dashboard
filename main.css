@@ -12,7 +12,10 @@
 }
 
 .five-day {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    margin: 0.625rem;
 }
 
 .search-styled {
@@ -26,4 +29,11 @@
     margin: auto;
     padding: 2rem;
     text-align: center;
+}
+
+.weather-card {
+    background-color: #1598F3;
+    color: white;
+    margin: 0.625rem;
+    padding: 0.4rem;
 }
