@@ -37,3 +37,8 @@
     margin: 0.625rem;
     padding: 0.4rem;
 }
+
+.weather-row {
+    display: flex;
+    flex-direction: row;
+}
