@@ -1,7 +1,7 @@
 $(document).ready(function() {
   /* variables */
   var date = moment().format('MMMM Do YYYY');
-  var cities = ["Chicago", "New York", "Los Angeles", "Houston"];
+  var cities = ["CHICAGO", "NEW YORK", "LOS ANGELES", "HOUSTON"];
   
   /*function*/
   function init(response) {
@@ -10,6 +10,8 @@ $(document).ready(function() {
             h3.text(response.name);
             var description = $('<p>');
             description.text((response.weather[0].description).toUpperCase());
+            var icon = $('<img src="http://openweathermap.org/img/wn/'+response.weather[0].icon+'@2x.png">');
+            icon.attr('style', 'width:3rem; height:3rem;');
             var dateDisplay = $('<h4>');
             dateDisplay.text(date);
             var temp = $("<p>");
@@ -19,7 +21,7 @@ $(document).ready(function() {
             var wind = $("<p>");
             wind.text("Wind speed: " + response.wind.speed + " MPH");
             $("#condition").empty();
-            $("#condition").append(h3).append(dateDisplay).append(description).append(temp).append(hum).append(wind);
+            $("#condition").append(h3).append(dateDisplay).append(description).append(icon).append(temp).append(hum).append(wind);
   };
   
   function forecast(response) {
@@ -35,12 +37,14 @@ $(document).ready(function() {
             var description = $('<p>');
             description.text((forecastData[i].weather[0].description).toUpperCase());
             var temp = $('<p>');
-            temp.text("Temperature: " + Math.floor((forecastData[i].main.temp))+ " °F");
+            var icon = $('<img src="http://openweathermap.org/img/wn/'+forecastData[i].weather[0].icon+'@2x.png">');
+            icon.attr('style', 'width:3rem; height:3rem;');
+            temp.html("Temperature: <br> " + Math.floor((forecastData[i].main.temp))+ " °F");
             var hum = $("<p>");
             hum.text("Humidity: "+ forecastData[i].main.humidity + "%");
             var wind = $("<p>");
-            wind.text("Wind speed: " + forecastData[i].wind.speed + " MPH");
-            forecastDiv.append(h4).append(description).append(temp).append(hum).append(wind);
+            wind.html("Wind speed: <br>" + forecastData[i].wind.speed + " MPH");
+            forecastDiv.append(h4).append(description).append(icon).append(temp).append(hum).append(wind);
             $('#forecast').append(forecastDiv);
             }
             
@@ -68,7 +72,8 @@ $(document).ready(function() {
   
     $("#submit").on("click", function(){
       var city = $("#city").val().trim();
-      cities.push(city);
+      cityCaps = city.toUpperCase();
+      cities.push(cityCaps);
       $("#cities").empty();
       for(var i=0;i<cities.length;i++){
         var btn = $("<button>");
