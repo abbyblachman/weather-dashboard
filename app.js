@@ -10,7 +10,7 @@ $(document).ready(function() {
             h3.text(response.name);
             var description = $('<p>');
             description.text((response.weather[0].description).toUpperCase());
-            var icon = $('<img src="http://openweathermap.org/img/wn/'+response.weather[0].icon+'@2x.png">');
+            var icon = $('<img src="https://openweathermap.org/img/wn/'+response.weather[0].icon+'@2x.png">');
             icon.attr('style', 'width:3rem; height:3rem;');
             var dateDisplay = $('<h4>');
             dateDisplay.text(date);
@@ -37,7 +37,7 @@ $(document).ready(function() {
             var description = $('<p>');
             description.text((forecastData[i].weather[0].description).toUpperCase());
             var temp = $('<p>');
-            var icon = $('<img src="http://openweathermap.org/img/wn/'+forecastData[i].weather[0].icon+'@2x.png">');
+            var icon = $('<img src="https://openweathermap.org/img/wn/'+forecastData[i].weather[0].icon+'@2x.png">');
             icon.attr('style', 'width:3rem; height:3rem;');
             temp.html("Temperature: <br> " + Math.floor((forecastData[i].main.temp))+ " °F");
             var hum = $("<p>");
@@ -103,7 +103,31 @@ $(document).ready(function() {
   
   
   /* init functions */
-  $(document).ready(function() {
+  $(document).ready(function(){
+    var map, infoWindow;
+    infoWindow = new google.maps.InfoWindow;
+    
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        console.log(pos);
+
+        /*infoWindow.setPosition(pos);
+        infoWindow.setContent('Location found.');
+        infoWindow.open(map);
+        map.setCenter(pos);*/
+      }, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+
       $("#cities").empty();
       for(var i=0;i<cities.length;i++){
         var btn = $("<button>");
@@ -113,7 +137,7 @@ $(document).ready(function() {
         btn.attr("style", "font-size: 1rem; margin: 0.3rem;");
         $("#cities").append(btn);
       }
-      var queryURL = 'https://openweathermap.org/data/2.5/weather?q=Chicago&appid=b6907d289e10d714a6e88b30761fae22';
+      var queryURL = 'https://openweathermap.org/data/2.5/weather?q=chicago&appid=b6907d289e10d714a6e88b30761fae22';
           $.ajax({
             url: queryURL, //"London,uk&appid=b6907d289e10d714a6e88b30761fae22",
             method: "GET"
