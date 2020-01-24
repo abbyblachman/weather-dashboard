@@ -55,7 +55,7 @@ $(document).ready(function() {
   $(document).on("click","button",function(){
     var c = $(this).attr("data-name");
     console.log("City clicked: "+c);
-    var queryURL = 'https://openweathermap.org/data/2.5/weather?q=' + c + '&appid=' + key;
+    var queryURL = 'https://api.openweathermap.org/data/2.5/weather?' + c + '&appid=' + key;
     $.ajax({
       url: queryURL, //"London,uk&appid=b6907d289e10d714a6e88b30761fae22",
       method: "GET"
@@ -84,7 +84,7 @@ $(document).ready(function() {
         btn.attr("style", "font-size: 1rem; margin: 0.3rem;");
         $("#cities").append(btn);
       }
-      var queryURL = 'https://openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + key;
+      var queryURL = 'https://api.openweathermap.org/data/2.5/weather?' + city + '&appid=' + key;
           $.ajax({
             url: queryURL, //"London,uk&appid=b6907d289e10d714a6e88b30761fae22",
             method: "GET"
@@ -138,7 +138,7 @@ $(document).ready(function() {
         btn.attr("style", "font-size: 1rem; margin: 0.3rem;");
         $("#cities").append(btn);
       }
-      var queryURL = 'https://openweathermap.org/data/2.5/weather?q=chicago&appid=' + key;
+      var queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=chicago&appid=' + key;
           $.ajax({
             url: queryURL, //"London,uk&appid=b6907d289e10d714a6e88b30761fae22",
             method: "GET"
