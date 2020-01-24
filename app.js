@@ -2,6 +2,7 @@ $(document).ready(function() {
   /* variables */
   var date = moment().format('MMMM Do YYYY');
   var cities = ["CHICAGO", "NEW YORK", "LOS ANGELES", "HOUSTON"];
+  var key = '267abd4e849c8e44a88479b5dc18d341';
   
   /*function*/
   function init(response) {
@@ -54,14 +55,14 @@ $(document).ready(function() {
   $(document).on("click","button",function(){
     var c = $(this).attr("data-name");
     console.log("City clicked: "+c);
-    var queryURL = 'https://openweathermap.org/data/2.5/weather?q=' + c + '&appid=b6907d289e10d714a6e88b30761fae22';
+    var queryURL = 'https://openweathermap.org/data/2.5/weather?q=' + c + '&appid=' + key;
     $.ajax({
       url: queryURL, //"London,uk&appid=b6907d289e10d714a6e88b30761fae22",
       method: "GET"
     }).then(function(response) {
       init(response);
     });
-    var forecastURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + c + '&appid=7ba67ac190f85fdba2e2dc6b9d32e93c&units=imperial';
+    var forecastURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + c + '&appid=' + key + 'units=imperial';
           $.ajax({
             url: forecastURL,
             method: "GET"
@@ -83,14 +84,14 @@ $(document).ready(function() {
         btn.attr("style", "font-size: 1rem; margin: 0.3rem;");
         $("#cities").append(btn);
       }
-      var queryURL = 'https://openweathermap.org/data/2.5/weather?q=' + city + '&appid=b6907d289e10d714a6e88b30761fae22';
+      var queryURL = 'https://openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + key;
           $.ajax({
             url: queryURL, //"London,uk&appid=b6907d289e10d714a6e88b30761fae22",
             method: "GET"
           }).then(function(response) {
             init(response);
           });
-      var forecastURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=7ba67ac190f85fdba2e2dc6b9d32e93c&units=imperial';
+      var forecastURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + key + '&units=imperial';
       $.ajax({
         url: forecastURL,
         method: "GET"
@@ -137,14 +138,14 @@ $(document).ready(function() {
         btn.attr("style", "font-size: 1rem; margin: 0.3rem;");
         $("#cities").append(btn);
       }
-      var queryURL = 'https://openweathermap.org/data/2.5/weather?q=chicago&appid=b6907d289e10d714a6e88b30761fae22';
+      var queryURL = 'https://openweathermap.org/data/2.5/weather?q=chicago&appid=' + key;
           $.ajax({
             url: queryURL, //"London,uk&appid=b6907d289e10d714a6e88b30761fae22",
             method: "GET"
           }).then(function(response) {
           init(response);
       });
-      var forecastURL = 'https://api.openweathermap.org/data/2.5/forecast?q=Chicago&appid=7ba67ac190f85fdba2e2dc6b9d32e93c&units=imperial';
+      var forecastURL = 'https://api.openweathermap.org/data/2.5/forecast?q=Chicago&appid=' + key + '&units=imperial';
           $.ajax({
             url: forecastURL,
             method: "GET"
