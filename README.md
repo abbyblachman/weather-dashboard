@@ -1,4 +1,4 @@
-# weather-dashboard
+# AJAX JQuery Weather Dashboard
 
 This project is a weather dashboard with live data and capacity to search cities for current weather and five-day forecast. 
 
