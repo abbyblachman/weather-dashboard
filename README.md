@@ -15,9 +15,4 @@ Copy the url under the 'clone' button above. Open up your terminal, and run
 
 ```git clone <url>```
 
-## Starting the app locally
-
-Clone into the root directory of the project, and run the following command:
-
-
 
