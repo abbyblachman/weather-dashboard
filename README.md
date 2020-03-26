@@ -20,16 +20,6 @@ Copy the url under the 'clone' button above. Open up your terminal, and run
 Clone into the root directory of the project, and run the following command:
 
 ```
-npm install
+node app.js
 ```
-
-This should install node modules within the server and the client folder.
-
-After both installations complete, run the following command in your terminal:
-
-```
-npm start
-```
-
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
 
