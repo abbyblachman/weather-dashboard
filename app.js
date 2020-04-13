@@ -2,7 +2,7 @@ $(document).ready(function() {
   /* variables */
   var date = moment().format('MMMM Do YYYY');
   var cities = ["CHICAGO", "NEW YORK", "LOS ANGELES", "HOUSTON"];
-  var key = '267abd4e849c8e44a88479b5dc18d341';
+  var key = 'b134f38b777f5be1bdb7430bf80e7272';
   
   /*function*/
   function init(response) {
