@@ -1,4 +1,4 @@
-# weather-dashboard
+# AJAX JQuery Weather Dashboard
 
 This project is a weather dashboard with live data and capacity to search cities for current weather and five-day forecast. 
 
@@ -8,3 +8,11 @@ My knowledge of the following is demonstrated:
 - Ajax 
 - Single page application building 
 - HTML/CSS
+
+## Clone the app 
+
+Copy the url under the 'clone' button above. Open up your terminal, and run 
+
+```git clone <url>```
+
+
